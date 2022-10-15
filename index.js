@@ -26,7 +26,7 @@ io.sockets.on('connect', (socket) => {
         if (rooms[room]) {
             rooms[room].push(uid);
         } else {
-            room[room] = [uid];
+            rooms[room] = [uid];
         }
 
         console.log(rooms, rooms[room])
