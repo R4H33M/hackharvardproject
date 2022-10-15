@@ -1,16 +1,43 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="An example of a full MERN-stack web application"
+    />
 
-<head>
-    <script src="motion.js"></script>
-</head>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="style.css">
 
-<body>
-    <button type="button" onclick="stillstart()">Click to track!</button>
-    <p id="x">X Var</p>
-    <p id="y">Y Var</p>
-    <p id="z">Z Var</p>
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
-</body>
+    <title>Hand off the phone APP</title>
+  </head>
+  
+  
+  <body>
+    
+    <div class="text-center">
+        <img src=""
+            style="width: 185px;" alt="logo">
+        <h4 class="mt-1 mb-5 pb-1">Hand Off The Phone</h4>
+    </div>
 
+    <form action="action_page.php" method="post">
+      
+        <div class="container">
+          <label for="uname"><b>Name</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+      
+          <label for="psw"><b>Room</b></label>
+          <input type="password" placeholder="Enter Room Number" name="psw" required>
+      
+          <button type="submit">Go!</button>
+
+        </div>
+      </form>
+      
+  </body>
 </html>
