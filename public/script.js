@@ -5,12 +5,14 @@ function namesubmitted() {
         console.log("client connected via sockets");
         let data = {
             "name": document.getElementById("uname").value,
-            "room": document.getElementById("psw").value
+            "room": document.getElementById("room").value
         }
         socket.emit('userData', data);
     })
+
+    socket.on('namelist', (data) => {
+        console.log("namelist", data);
+    })
+    
     document.getElementById("firstform").style.display = "none";
 }
-
-
-    // recieve prev msgs 
