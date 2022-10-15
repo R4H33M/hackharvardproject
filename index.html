@@ -13,7 +13,8 @@
                 }
             };
             accelerometer.onreading = (e) => {
-                console.log(e);
+
+                document.getElementById("lol").innerHTML = e.reading;
             };
             accelerometer.start();
             } catch (error) {
@@ -28,4 +29,7 @@
             }
         </script>
     </head>
+    <body>
+        <p id="lol">Reading: </p>
+    </body>
 </html>
