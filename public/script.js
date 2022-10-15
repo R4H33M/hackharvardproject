@@ -1,11 +1,18 @@
-console.log("helo")
-let socket = io();
-socket.on('connect', () => {
+function namesubmitted() {
+    console.log("helo")
+    let socket = io();
+    socket.on('connect', () => {
         console.log("client connected via sockets");
         let data = {
-            "name": "raheem",
-            "room": 19
+            "name": document.getElementById("uname").value,
+            "room": document.getElementById("room").value
         }
         socket.emit('userData', data);
     })
-    // recieve prev msgs
+
+    document.getElementById("firstform").style.display = "none";
+
+    socket.on('namelist', (data) => {
+        console.log("namelist", data);
+    })
+}
