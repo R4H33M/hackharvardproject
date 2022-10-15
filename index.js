@@ -22,7 +22,7 @@ console.log(`we have a new client: ${socket.id}`);
         let room = data.room;  
         console.log(`user ${name} entered room ${room}`);
 
-        users[uid] = name;
+        users[uid] = [name, room];
 
         if (rooms[room]) {
             rooms[room].push(uid);
@@ -30,20 +30,24 @@ console.log(`we have a new client: ${socket.id}`);
             rooms[room] = [uid];
         }
 
-        console.log(rooms, rooms[room])
         let namelist = [];
-        rooms[room].forEach(uid => {
-            namelist.push(users[uid])
+        rooms[room].forEach(userId => {
+            let username = (users[userId])[0];
+            namelist.push(username);
         });
 
-        rooms[room].forEach(uid => {
-            socket.to(uid).emit('namelist', namelist);
-        });
+        socket.join(room);
+        io.to(room).emit('namelist', namelist);
+
     })
 
     socket.on('disconnect', () => {
         console.log("client: ", socket.id, "is disconnected");
-
+        // Remove user from maps when they disconnect
+        let uid = socket.id;
+        let userRoom = (users[uid])[1];
+        rooms[userRoom] = rooms[userRoom].filter(userId => userId !== uid);
+        delete users[uid]
     })
 
 })
