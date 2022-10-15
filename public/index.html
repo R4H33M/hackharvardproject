@@ -29,7 +29,7 @@
 
                 gyro.onreading = (e) => {
                     if (started){
-                        if (Math.abs(prevx-gyro.x) > 1 || Math.abs(prevy-gyro.y) > 1 || Math.abs(prevz-gyro.z) > 1) {
+                        if (Math.abs(prevx-gyro.x) > 0.4 || Math.abs(prevy-gyro.y) > 0.4 || Math.abs(prevz-gyro.z) > 0.4) {
                             //we touched our phone!
                             console.log("you moved too much!")
                             document.body.style.backgroundColor = "red";
@@ -58,5 +58,7 @@
         <p id="x">X Var</p>
         <p id="y">Y Var</p>
         <p id="z">Z Var</p>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
