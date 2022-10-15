@@ -2,54 +2,59 @@
     <head>
         <script>
 
-            function check() {
-                if (Math.abs(prevz - accelerometer.z) > 2 && (prevz != null)) {
-                    document.getElementById("yell").innerHTML = "EYOOOOO!";
-                }
-                prevz = accelerometer.z;
-                console.log(prevz)
+            let gyro = null;
+            let prevx = null;
+            let prevy = null;
+            let prevz = null;
+            let started = false;
+
+            function stillstart() {
+                console.log("tracking started!")
+                prevx = gyro.x;
+                prevy = gyro.y;
+                prevz = gyro.z;
+                started = true;
             }
 
-            let accelerometer = null;
-            let prevz;
             try {
-            accelerometer = new Accelerometer({ frequency: 10 });
-            prevz =  accelerometer.z;
-            accelerometer.onerror = (event) => {
-                // Handle runtime errors.
-                if (event.error.name === 'NotAllowedError') {
-                console.log('Permission to access sensor was denied.');
-                } else if (event.error.name === 'NotReadableError') {
-                console.log('Cannot connect to the sensor.');
-                }
-            };
+                gyro = new Gyroscope({ frequency: 12 });
+                gyro.onerror = (event) => {
+                    // Handle runtime errors.
+                    if (event.error.name === 'NotAllowedError') {
+                        console.log('Permission to access sensor was denied.');
+                    } else if (event.error.name === 'NotReadableError') {
+                        console.log('Cannot connect to the sensor.');
+                    }
+                };
 
-            window.setInterval(check, 500);
-            accelerometer.onreading = (e) => {
-
-                document.getElementById("x").innerHTML = "x: " +  accelerometer.x;
-                document.getElementById("y").innerHTML = "y: " +  accelerometer.y;
-                document.getElementById("z").innerHTML = "z: " +  accelerometer.z;
-                
-
-            };
-            accelerometer.start();
-            prevz = accelerometer.z;
-            console.log(prevz)
+                gyro.onreading = (e) => {
+                    if (started){
+                        if (Math.abs(prevx-gyro.x) > 1 || Math.abs(prevy-gyro.y) > 1 || Math.abs(prevz-gyro.z) > 1) {
+                            //we touched our phone!
+                            console.log("you moved too much!")
+                            document.body.style.backgroundColor = "red";
+                        }
+                    }
+                    document.getElementById("x").innerHTML = "x: " +  gyro.x;
+                    document.getElementById("y").innerHTML = "y: " +  gyro.y;
+                    document.getElementById("z").innerHTML = "z: " +  gyro.z; 
+                };
+            
+                gyro.start();
             } catch (error) {
-            // Handle construction errors.
-            if (error.name === 'SecurityError') {
-                console.log('Sensor construction was blocked by the Permissions Policy.');
-            } else if (error.name === 'ReferenceError') {
-                console.log('Sensor is not supported by the User Agent.');
-            } else {
-                throw error;
-            }
+                // Handle construction errors.
+                if (error.name === 'SecurityError') {
+                    console.log('Sensor construction was blocked by the Permissions Policy.');
+                } else if (error.name === 'ReferenceError') {
+                    console.log('Sensor is not supported by the User Agent.');
+                } else {
+                    throw error;
+                }
             }
         </script>
     </head>
     <body>
-        <p id="yell"> Okay all good </p>
+        <button type="button" onclick="stillstart()">Click to track!</button>
         <p id="x">X Var</p>
         <p id="y">Y Var</p>
         <p id="z">Z Var</p>
