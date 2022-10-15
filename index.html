@@ -3,12 +3,11 @@
         <script>
 
             function check() {
-                if (Math.abs(prevz - accelerometer.z) > 2) {
+                if (Math.abs(prevz - accelerometer.z) > 2 && (prevz != null)) {
                     document.getElementById("yell").innerHTML = "EYOOOOO!";
                 }
                 prevz = accelerometer.z;
                 console.log(prevz)
-
             }
 
             let accelerometer = null;
