@@ -30,6 +30,7 @@ io.sockets.on('connect', (socket) => {
             room[room] = [uid];
         }
 
+        console.log(rooms, rooms[room])
         let namelist = rooms[room].forEach(uid => {
             users[uid]
         });
