@@ -8,41 +8,41 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="An example of a full MERN-stack web application" />
 
-   
+
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="style.css">
 
     <title>Hand off the phone APP</title>
-  </head>
-  
-  
-  <body>
-    
-    <div id="firstform">
+</head>
+
+
+<body>
+
+    <div id="firstform" class="main">
         <div class="text-center">
-            <img src=""
-                style="width: 185px;" alt="logo">
+            <img src="" style="width: 185px;" alt="logo">
 
             <h4 class="mt-1 mb-5 pb-1">Hand Off The Phone</h4>
         </div>
-      
+
         <div class="container">
             <label for="uname"><b>Name</b></label>
             <input type="text" placeholder="Enter Username" id="uname" required>
-        
+
             <label for="psw"><b>Room</b></label>
             <input type="text" placeholder="Enter Room Number" id="room" required>
-        
+
             <button onclick="namesubmitted()">Go!</button>
 
         </div>
-     </div>
-     <div class="error">
+    </div>
+    <div class="error">
         <p>Please access the webpage from a mobile phone</p>
     </div>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
-      
-  </body>
+
+</body>
+
 </html>
