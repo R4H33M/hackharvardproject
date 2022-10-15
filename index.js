@@ -23,9 +23,8 @@ io.sockets.on('connect', (socket) => {
 
         users[uid] = name;
 
-        let currRoom = rooms[room];
-        if (currRoom) {
-            currRoom.push(uid);
+        if (rooms[room]) {
+            rooms[room].push(uid);
         } else {
             room[room] = [uid];
         }
