@@ -15,11 +15,12 @@ let rooms = {};
 let users = {};
 // connect to server
 io.sockets.on('connect', (socket) => {
-    console.log("we have a new client: ", socket.id);
-    socket.on('userData', (data) => {
+console.log(`we have a new client: ${socket.id}`);
+    socket.on('userData', (data) => {  
         let uid = socket.id;
         let name = data.name;
-        let room = data.room;
+        let room = data.room;  
+        console.log(`user ${name} entered room ${room}`);
 
         users[uid] = name;
 
@@ -30,8 +31,9 @@ io.sockets.on('connect', (socket) => {
         }
 
         console.log(rooms, rooms[room])
-        let namelist = rooms[room].forEach(uid => {
-            users[uid]
+        let namelist = [];
+        rooms[room].forEach(uid => {
+            namelist.push(users[uid])
         });
 
         rooms[room].forEach(uid => {
