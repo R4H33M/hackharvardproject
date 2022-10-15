@@ -7,6 +7,8 @@
                     document.getElementById("yell").innerHTML = "EYOOOOO!";
                 }
                 prevz = accelerometer.z;
+                console.log(prevz)
+
             }
 
             let accelerometer = null;
@@ -34,6 +36,7 @@
             };
             accelerometer.start();
             prevz = accelerometer.z;
+            console.log(prevz)
             } catch (error) {
             // Handle construction errors.
             if (error.name === 'SecurityError') {
