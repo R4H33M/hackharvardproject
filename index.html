@@ -1,9 +1,19 @@
 <html>
     <head>
         <script>
+
+            function check() {
+                if (Math.abs(prevz - accelerometer.z) > 2) {
+                    document.getElementById("yell").innerHTML = "EYOOOOO!";
+                }
+                prevz = accelerometer.z;
+            }
+
             let accelerometer = null;
+            let prevz;
             try {
             accelerometer = new Accelerometer({ frequency: 10 });
+            prevz =  accelerometer.z;
             accelerometer.onerror = (event) => {
                 // Handle runtime errors.
                 if (event.error.name === 'NotAllowedError') {
@@ -12,11 +22,18 @@
                 console.log('Cannot connect to the sensor.');
                 }
             };
+
+            window.setInterval(check, 500);
             accelerometer.onreading = (e) => {
 
-                document.getElementById("lol").innerHTML = e.reading;
+                document.getElementById("x").innerHTML = "x: " +  accelerometer.x;
+                document.getElementById("y").innerHTML = "y: " +  accelerometer.y;
+                document.getElementById("z").innerHTML = "z: " +  accelerometer.z;
+                
+
             };
             accelerometer.start();
+            prevz = accelerometer.z;
             } catch (error) {
             // Handle construction errors.
             if (error.name === 'SecurityError') {
@@ -30,6 +47,9 @@
         </script>
     </head>
     <body>
-        <p id="lol">Reading: </p>
+        <p id="yell"> Okay all good </p>
+        <p id="x">X Var</p>
+        <p id="y">Y Var</p>
+        <p id="z">Z Var</p>
     </body>
 </html>
