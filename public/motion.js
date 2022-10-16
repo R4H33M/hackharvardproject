@@ -6,7 +6,8 @@ let startedGYRO = false;
 
 function stillstart() {
     console.log("tracking started!")
-|    prevy = gyro.y;
+    prevx = gyro.x;
+    prevy = gyro.y;
     prevz = gyro.z;
     startedGYRO = true;
 }
