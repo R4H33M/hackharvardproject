@@ -2,14 +2,14 @@ let gyro = null;
 let prevx = null;
 let prevy = null;
 let prevz = null;
-let started = false;
+let startedGYRO = false;
 
 function stillstart() {
     console.log("tracking started!")
     prevx = gyro.x;
     prevy = gyro.y;
     prevz = gyro.z;
-    started = true;
+    startedGYRO = true;
 }
 
 try {
@@ -24,7 +24,7 @@ try {
     };
 
     gyro.onreading = (e) => {
-        if (started) {
+        if (startedGYRO) {
             if (Math.abs(prevx - gyro.x) > 0.4 || Math.abs(prevy - gyro.y) > 0.4 || Math.abs(prevz - gyro.z) > 0.4) {
                 //we touched our phone!
                 console.log("you moved too much!")
