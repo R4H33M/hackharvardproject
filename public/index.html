@@ -21,18 +21,20 @@
 
     <div id="firstform" class="main">
         <div class="text-center">
-            <img src="" style="width: 185px;" alt="logo">
+            <img src="" alt="logo">
 
             <h4 class="mt-1 mb-5 pb-1">Hand Off The Phone</h4>
         </div>
 
         <div class="container">
-            <label for="uname"><b>Name</b></label>
-            <input type="text" placeholder="Enter Username" id="uname" required>
-
-            <label for="psw"><b>Room</b></label>
-            <input type="text" placeholder="Enter Room Number" id="room" required>
-
+            <div class="label-container">
+                <label for="uname"><b>Name</b></label>
+                <input type="text" placeholder="Enter Username" id="uname" required>
+            </div>
+            <div class="label-container">
+                <label for="psw"><b>Room</b></label>
+                <input type="text" placeholder="Enter Room Number" id="room" required>
+            </div>
             <button onclick="namesubmitted()">Go!</button>
 
         </div>

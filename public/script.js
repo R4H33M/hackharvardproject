@@ -12,6 +12,7 @@ function namesubmitted() {
 
     document.getElementById("firstform").style.display = "none";
 
+
     socket.on('namelist', (data) => {
         console.log("namelist", data);
     })
