@@ -42,9 +42,11 @@ function startTimer() {
     if (started) {
         //window.clearInterval(intervalID)
     } else {
+        stillstart()
         intervalID = window.setInterval(count, 1000);
         started = true;
         socket.emit("startedtimer")
+
     }
 }
 
