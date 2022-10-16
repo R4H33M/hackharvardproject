@@ -13,7 +13,14 @@
         flex-direction: column;
     }
     body {
-        background-color: whitesmoke;
+        font-family: 'Rajdhani', sans-serif;
+        background-color: aliceblue;
+        background-image: url("bg1.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: bottom;
+        background-size: contain;
+        ba
     }
     form {
         border: 3px solid #f1f1f1;
@@ -27,10 +34,11 @@
         border: 1px solid #ccc;
         margin: 1vh;
         box-sizing: border-box;
+        background-color: hsl(170, 51%, 87%);
     }
     /* Set a style for all buttons */
     button {
-        background-color: #04AA6D;
+        background-color: #AF6BDD;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
