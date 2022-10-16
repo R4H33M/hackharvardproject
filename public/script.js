@@ -2,6 +2,7 @@ let socket;
 let currentTime = 0;
 let started = false;
 let intervalID;
+let number = 0;
 
 function count(){
     currentTime++;
@@ -54,12 +55,16 @@ function stopTimer() {
     if (started) {
         socket.emit("stoptimer")
         window.clearInterval(intervalID)
-        document.getElementById("startbutton").style.color = "red";
+        document.getElementById("waitingRoom").style.display = "none";
+        document.getElementById("finalScreen").innerHTML =
+        "Well done! You connected for " + currentTime + "s econds with " + number + " people!"
+        document.getElementById("finalScreen").style.display = "block";
     }
 }
 
 function displayList(namelist) {
     let html = "";
+    number = namelist.length;
     for (let ind in namelist) {
         html += "<li>" + namelist[ind] + "</li><br>";
     }

@@ -70,7 +70,6 @@ console.log(`we have a new client: ${socket.id}`);
     })
 
     socket.on('stoptimer', () => {
-        console.log("client: ", socket.id, "fucked up");
         let userRoom = users[socket.id][1];
         io.to(userRoom).emit("stoptimer")
     })
