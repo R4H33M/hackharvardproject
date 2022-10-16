@@ -12,13 +12,16 @@
         align-items: center;
         flex-direction: column;
     }
+    body {
+        background-color: whitesmoke;
+    }
     form {
         border: 3px solid #f1f1f1;
     }
     /* Full-width inputs */
     input[type=text],
     input[type=password] {
-        width: 100%;
+        width: 50%;
         padding: 12px 20px;
         margin: 8px 0;
         display: inline-block;
@@ -42,6 +45,7 @@
     /* Add padding to containers */
     .container {
         padding: 16px;
+        display: flex;
     }
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
