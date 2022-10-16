@@ -6,8 +6,7 @@ let startedGYRO = false;
 
 function stillstart() {
     console.log("tracking started!")
-    prevx = gyro.x;
-    prevy = gyro.y;
+|    prevy = gyro.y;
     prevz = gyro.z;
     startedGYRO = true;
 }
@@ -31,9 +30,9 @@ try {
                 stopTimer()
             }
         }
-        document.getElementById("x").innerHTML = "x: " + gyro.x;
-        document.getElementById("y").innerHTML = "y: " + gyro.y;
-        document.getElementById("z").innerHTML = "z: " + gyro.z;
+        //document.getElementById("x").innerHTML = "x: " + gyro.x;
+        //document.getElementById("y").innerHTML = "y: " + gyro.y;
+        //document.getElementById("z").innerHTML = "z: " + gyro.z;
     };
 
     gyro.start();
