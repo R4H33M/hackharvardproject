@@ -36,7 +36,7 @@
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 40%;
+        width: 40vw;
     }
     /* Add a hover effect for buttons */
     button:hover {

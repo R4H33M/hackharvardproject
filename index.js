@@ -58,6 +58,18 @@ console.log(`we have a new client: ${socket.id}`);
         io.to(userRoom).emit('namelist', namelist);
     })
 
+    socket.on('startedtimer', () => {
+        console.log("client: ", socket.id, "started timer");
+        let userRoom = users[socket.id][1];
+        io.to(userRoom).emit("starttimer")
+    })
+
+    socket.on('stoptimer', () => {
+        console.log("client: ", socket.id, "fucked up");
+        let userRoom = users[socket.id][1];
+        io.to(userRoom).emit("stoptimer")
+    })
+
 })
 
 //run the createServer

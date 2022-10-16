@@ -28,7 +28,7 @@ try {
             if (Math.abs(prevx - gyro.x) > 0.4 || Math.abs(prevy - gyro.y) > 0.4 || Math.abs(prevz - gyro.z) > 0.4) {
                 //we touched our phone!
                 console.log("you moved too much!")
-                document.body.style.backgroundColor = "red";
+                stopTimer()
             }
         }
         document.getElementById("x").innerHTML = "x: " + gyro.x;
