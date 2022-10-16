@@ -48,6 +48,14 @@ console.log(`we have a new client: ${socket.id}`);
         let userRoom = (users[uid])[1];
         rooms[userRoom] = rooms[userRoom].filter(userId => userId !== uid);
         delete users[uid]
+
+        let namelist = [];
+        rooms[userRoom].forEach(userId => {
+            let username = (users[userId])[0];
+            namelist.push(username);
+        });
+
+        io.to(userRoom).emit('namelist', namelist);
     })
 
 })

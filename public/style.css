@@ -50,6 +50,10 @@
         justify-content: space-around;
         align-items: center;
     }
+    .container ul {
+        display: flex;
+        flex-direction: column;
+    }
     .label-container {
         display: flex;
         flex-direction: row;

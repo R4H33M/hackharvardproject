@@ -15,16 +15,15 @@ function enterRoom() {
 
     socket.on('namelist', (data) => {
         console.log("namelist", data);
-        displayList(namelist);
+        displayList(data);
     })
 }
 
 function displayList(namelist) {
-    console.log("bla2: ",namelist)
-    let html = ""
-    for (username in namelist) {
-        html += "<li>" + username + "</li>";
+    let html = "";
+    for (let ind in namelist) {
+        html += "<li>" + namelist[ind] + "</li><br>";
     }
-    document.getElementById("namelist").innerHTML += html;
+    document.getElementById("namelist").innerHTML = html;
     document.getElementById("namelist").style.display = "flex";
 }
