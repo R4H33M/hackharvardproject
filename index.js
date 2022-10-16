@@ -4,8 +4,13 @@ let app = express();
 app.use('/', express.static('public'));
 
 //Initialize the actual HTTP server
-let http = require('http');
-let server = http.createServer(app);
+let https = require('https');
+const fs = require('fs');
+const options = {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+  };
+let server = https.createServer(options, app);
 
 //Initialize socket.io
 let io = require('socket.io');
