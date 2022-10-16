@@ -4,14 +4,6 @@ let prevy = null;
 let prevz = null;
 let startedGYRO = false;
 
-function stillstart() {
-    console.log("tracking started!")
-    prevx = gyro.x;
-    prevy = gyro.y;
-    prevz = gyro.z;
-    startedGYRO = true;
-}
-
 try {
     gyro = new Gyroscope({ frequency: 12 });
     gyro.onerror = (event) => {
@@ -47,3 +39,12 @@ try {
         throw error;
     }
 }
+
+function stillstart() {
+    console.log("tracking started!")
+    prevx = gyro.x;
+    prevy = gyro.y;
+    prevz = gyro.z;
+    startedGYRO = true;
+}
+
