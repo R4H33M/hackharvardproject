@@ -20,19 +20,22 @@
 <body>
     <div id="loginPage" class="main">
         <div class="text-center">
-            <img src="logo.png" style="width: 185px;" alt="logo">
+            <img src="logo.png" alt="logo">
 
             <h4 class="mt-1 mb-5 pb-1">ConnecTime</h4>
         </div>
 
         <div class="container">
-            <label for="uname"><b>Name</b></label>
-            <input type="text" placeholder="Enter Username" id="uname" required>
-
-            <label for="psw"><b>Room</b></label>
-            <input type="text" placeholder="Enter Room Number" id="room" required>
-
+            <div class="label-container">
+                <label for="uname"><b>Name</b></label>
+                <input type="text" placeholder="Enter Username" id="uname" required>
+            </div>
+            <div class="label-container">
+                <label for="psw"><b>Room</b></label>
+                <input type="text" placeholder="Enter Room Number" id="room" required>
+            </div>
             <button onclick="enterRoom()">Go!</button>
+
         </div>
     </div>
 
@@ -42,8 +45,7 @@
 
     <div id="waitingRoom" class="main">
         <div class="container">
-
-            <button onclick="enterRoom()">Go!</button>
+            <button onclick="">Start Timer</button>
         </div>
 
         <div class="container">
