@@ -13,17 +13,16 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="style.css">
 
-    <title>Hand off the phone APP</title>
+    <title>ConnecTime APP</title>
 </head>
 
 
 <body>
-
-    <div id="firstform" class="main">
+    <div id="loginPage" class="main">
         <div class="text-center">
-            <img src="" style="width: 185px;" alt="logo">
+            <img src="logo.png" style="width: 185px;" alt="logo">
 
-            <h4 class="mt-1 mb-5 pb-1">Hand Off The Phone</h4>
+            <h4 class="mt-1 mb-5 pb-1">ConnecTime</h4>
         </div>
 
         <div class="container">
@@ -33,13 +32,26 @@
             <label for="psw"><b>Room</b></label>
             <input type="text" placeholder="Enter Room Number" id="room" required>
 
-            <button onclick="namesubmitted()">Go!</button>
-
+            <button onclick="enterRoom()">Go!</button>
         </div>
     </div>
+
     <div class="error">
         <p>Please access the webpage from a mobile phone</p>
     </div>
+
+    <div id="waitingRoom" class="main">
+        <div class="container">
+
+            <button onclick="enterRoom()">Go!</button>
+        </div>
+
+        <div class="container">
+            <ul id="namelist" style= "display: none">
+            </ul>
+        </div>
+    </div>
+
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 
